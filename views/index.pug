@@ -3,3 +3,16 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  form(action="", class="getInfo")
+    h4="find team(s) in need"
+    input(type='text', placeholder='lat')
+    input(type='text', placeholder='long')
+    input(type='text', placeholder='radius')
+    input(type='text', placeholder='budget')
+
+  form(action="", class="postInfo")
+    h4="find sponsors to help"
+    input(type='text', placeholder='lat')
+    input(type='text', placeholder='long')
+    input(type='text', placeholder='price')
+
