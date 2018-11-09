@@ -1,0 +1,19 @@
+{
+  "name": "leagueside",
+  "version": "1.0.0",
+  "description": "leagueside coding challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasgrz/lschallenge.git"
+  },
+  "author": "thomas grzesiakowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomasgrz/lschallenge/issues"
+  },
+  "homepage": "https://github.com/thomasgrz/lschallenge#readme"
+}
