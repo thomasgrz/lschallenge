@@ -1,0 +1,36 @@
+{
+<<<<<<< HEAD
+  "name": "sponsorfinder",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "pug": "2.0.0-beta11"
+  }
+=======
+  "name": "leagueside",
+  "version": "1.0.0",
+  "description": "leagueside coding challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasgrz/lschallenge.git"
+  },
+  "author": "thomas grzesiakowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomasgrz/lschallenge/issues"
+  },
+  "homepage": "https://github.com/thomasgrz/lschallenge#readme"
+>>>>>>> 20ab4e05b7c40901e010f5093fe9c507be922511
+}
