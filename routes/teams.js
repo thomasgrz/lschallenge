@@ -1,20 +1,16 @@
 var express = require('express');
 var router = express.Router();
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:8000/myfirstmdb"
+var db = require('../queries');
 
-MongoClient.connect(url,function(err, db){
-    if(err) throw err;
-    console.log("Database created!")
-    db.close()
-})
 router.get('/',function(req,res,next){
-    let query = req.query
-    res.json(query)
+    console.log(db)
+    db.findTeams(req,res)
+    .then(query=>res.json(query))
+    
 })
 
 router.post('/',function(req,res,next){
-    console.log(req.query)
-    res.send(req.query)
+    db.createTeam(req)
+    res.send('done')
 })
 module.exports = router;
