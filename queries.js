@@ -2,10 +2,22 @@
 var pgp = require('pg-promise')({})
 var connectionString = 'postgres://localhost:5432/my_new_database'
 var db = pgp(connectionString)
+var GeoPoint = require('geopoint');
 
 async function findTeams(req,res,next){
+    let queries = req.query
+    let lat = parseFloat(queries.lat)
+    let long = parseFloat(queries.long)
+    let radius = parseInt(queries.radius)
+
+    let location = new GeoPoint(lat,long)
+    let outerbounds = location.boundingCoordinates(radius)
+    let lat1 = outerbounds[0]._degLat
+    let long1 = outerbounds[0]._degLon
+    let lat2 = outerbounds[1]._degLat
+    let long2 = outerbounds[1]._degLon
     return await db.one("SELECT * FROM users WHERE name=$1",[req.query.name] )
-    .then(data=>JSON.stringify(data) + req.query.othername)
+    .then(()=>location)
     .catch(err=>console.error(err))
 }
 
