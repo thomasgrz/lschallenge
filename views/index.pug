@@ -7,13 +7,13 @@ block content
     form(action="/teams", class="getInfo", method='GET')
       h4="Find teams in need"
       label(for='teams_lat') Latitude
-      input(type='text', placeholder='lat',id='teams_lat',name='latitude')
+      input(type='text', placeholder='lat. in decimals',id='teams_lat',name='latitude')
       label(for='teams_long') Longitude
-      input(type='text', placeholder='long',id='teams_long',name='longitude')
+      input(type='text', placeholder='long. in decimals',id='teams_long',name='longitude')
       label(for='teams_radius') Radius (in miles)
       input(type='text', placeholder='radius',id='teams_radius',name='radius')
       label(for='teams_budget') Budget (USD)
-      input(type='text', placeholder='budget', id="teams_budget",name='budget')
+      input(type='text', placeholder='ex: 1500', id="teams_budget",name='price')
       button(type='submit') SUBMIT
 
     form(action="/team", class="postInfo",method='POST')
@@ -21,10 +21,10 @@ block content
       label(for='team_name') Team Name
       input(type='text',placeholder='name',id='team_name',name='name')
       label(for='team_lat') Latitude
-      input(type='text', placeholder='lat',id='team_latitude',name='latitude')
+      input(type='text', placeholder='lat. in decimals',id='team_latitude',name='latitude')
       label(for='team_long') Longitude 
-      input(type='text', placeholder='long', id='team_longitude',name='longitude')
+      input(type='text', placeholder='long. in decimals', id='team_longitude',name='longitude')
       label(for='team_price') Price (USD)
-      input(type='text', placeholder='price')
+      input(type='text', placeholder='ex: 500',name='price')
       button(type='submit') SUBMIT
 

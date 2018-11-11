@@ -43,10 +43,11 @@ async function findTeams(req,res,next){
 }
 
 async function createTeam(req,res){
-    let teamname = req.query.name
-    let teamprice = req.query.price
-    let longitude = parseFloat(req.query.longitude)
-    let latitude = parseFloat(req.query.latitude)
+    let params = req.body
+    let teamname = params.name
+    let teamprice = params.price
+    let longitude = parseFloat(params.longitude)
+    let latitude = parseFloat(params.latitude)
     let createdTeam = {}
     return await db.none("INSERT INTO teams(name, latitude,longitude, price) VALUES ($1,$2,$3,$4)",[teamname, longitude,latitude, teamprice])
     .then(()=>{
