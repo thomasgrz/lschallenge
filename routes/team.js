@@ -2,10 +2,9 @@ var express = require('express');
 var router = express.Router();
 var db = require('../queries');
 
-router.get('/',function(req,res,next){
-    db.findTeams(req,res)
-    .then(query=>res.json(query))
-    
+router.post('/',function(req,res,next){
+    db.createTeam(req)
+    .then((createdTeam)=>res.json(createdTeam))
 })
 
 module.exports = router;

@@ -47,9 +47,16 @@ async function createTeam(req,res){
     let teamprice = req.query.price
     let longitude = parseFloat(req.query.longitude)
     let latitude = parseFloat(req.query.latitude)
+    let createdTeam = {}
+    return await db.none("INSERT INTO teams(name, latitude,longitude, price) VALUES ($1,$2,$3,$4)",[teamname, longitude,latitude, teamprice])
+    .then(()=>{
+        createdTeam.name = teamname
+        createdTeam.price = teamprice
+        createdTeam.latitude = latitude
+        createdTeam.longitude = longitude
 
-    return await db.none("INSERT INTO teams(name, location, price) VALUES ($1,'($2,$3)',$4)",[teamname, longitude,latitude, teamprice])
-    .then((name)=>console.log(name))
+        return createdTeam
+    })
     .catch(err=>console.error(err))
 }
 module.exports = {
