@@ -1,8 +1,9 @@
 import csv 
 import psycopg2 
-
+import os 
+connectionString = os.environ["DATABASE_URL"]
 try:
-    conn = psycopg2.connect('postgres://localhost:5432/my_new_database')
+    conn = psycopg2.connect(connectionString)
     print('that worked! sweet >:)')
 except:
     print('connecting with a connection string doesnt work')

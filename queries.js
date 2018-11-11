@@ -1,9 +1,9 @@
+require('dotenv').config()
 
 var pgp = require('pg-promise')({})
-var connectionString = 'postgres://localhost:5432/my_new_database'
+var connectionString = process.env['DATABASE_URL']
 var db = pgp(connectionString)
 var GeoPoint = require('geopoint');
-
 async function findTeams(req,res,next){
     let queries = req.query
     let budget = parseFloat(queries.price)
