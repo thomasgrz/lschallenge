@@ -11,6 +11,6 @@ router.get('/',function(req,res,next){
 
 router.post('/',function(req,res,next){
     db.createTeam(req)
-    res.send('done')
+    .then((teams)=>res.json(teams))
 })
 module.exports = router;

@@ -6,18 +6,39 @@ var GeoPoint = require('geopoint');
 
 async function findTeams(req,res,next){
     let queries = req.query
-    let lat = parseFloat(queries.lat)
-    let long = parseFloat(queries.long)
+    let budget = parseFloat(queries.price)
+    let latitude = parseFloat(queries.latitude)
+    let longitude = parseFloat(queries.longitude)
     let radius = parseInt(queries.radius)
-
-    let location = new GeoPoint(lat,long)
+    console.log([latitude,longitude,radius])
+    let location = new GeoPoint(latitude,longitude)
     let outerbounds = location.boundingCoordinates(radius)
-    let lat1 = outerbounds[0]._degLat
-    let long1 = outerbounds[0]._degLon
-    let lat2 = outerbounds[1]._degLat
-    let long2 = outerbounds[1]._degLon
-    return await db.one("SELECT * FROM users WHERE name=$1",[req.query.name] )
-    .then(()=>location)
+    let upperlat = outerbounds[0]._degLat
+    let upperlon = outerbounds[0]._degLon
+    let lowerlat = outerbounds[1]._degLat
+    let lowerlon = outerbounds[1]._degLon
+    console.log([lowerlat,lowerlon,upperlat,upperlon])
+    return await db.any("SELECT * FROM teams WHERE (latitude BETWEEN $1 AND $2) AND (longitude BETWEEN $3 AND $4);",[upperlat,lowerlat,upperlon,lowerlon])
+    .then((teams)=>{
+        let sponsorship = {
+            teams: [],
+            cost: 0,
+        }
+        let spend = budget
+        let length = teams.length
+        let comparePrice = (a,b)=> parseInt(a.price) - parseInt(b.price)
+        teams = teams.sort(comparePrice)
+        for(let i=0;i<length;i++){
+            let price = parseInt(teams[i].price)
+            if(price<spend){
+                sponsorship.teams.push(teams[i])
+                spend = spend - price
+            }else{
+                sponsorship.cost = budget - spend
+            }
+        }
+        return sponsorship
+    })
     .catch(err=>console.error(err))
 }
 
