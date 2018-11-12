@@ -1,8 +1,21 @@
 # SportSponsor
 Simple coding challenge for technical review. 
 It has two endpoints:
-1. One to POST new Leagues to
-2. One to GET Leagues in need of sponsorship from
+1. /team
+...The /team route accepts POST requests and expects, within the body,
+...a latitude=(*lat. in decimals*), longitude=(*long. in decimals*), name=(*string*)
+...and price=(*integer*). 
+...This route will return an object representing the newly created database entry
+```
+{
+  name: "The Job Hunt Jaguars",
+  latitude: "30.1234",
+  longitude: "-75.1234",
+  price: "500"
+}
+```
+2. /teams
+...The /teams route accepts
 
 ## Connect your local database
 SportSponsor requires a local PostgresQL database named `teams` to store and query data from.
