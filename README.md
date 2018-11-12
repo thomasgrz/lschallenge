@@ -17,9 +17,37 @@ This route will return an object representing the newly created database entry
 2. `/teams`
 
 The `/teams` route accepts GET requests and expects, within the query parameters of the URL a latitude=(*lat. in decimals*), longitude=(*long. in decimals*), radius=(*miles as integer*) and price=(*USD as integer*).
+
 This route will query the teams within the PostgresQL database and return an object representing as many teams as possible within the given radius of the specificed location without going over budget as well as the total cost.
 
-example:
+For example if you were to populate the database with the existing `teams.csv` and send a GET request to `localhost:3000/teams?longitude=-75.078126&latitude=40.004565&radius=100&price=8000` it would return
+
+```
+{
+    "teams": [
+        {
+            "name": "the zoomers",
+            "price": "1500",
+            "latitude": "39.957184",
+            "longitude": "-75.173835"
+        },
+        {
+            "name": "the duloc ogres",
+            "price": "2500",
+            "latitude": "39.946761",
+            "longitude": "-75.044285"
+        },
+        {
+            "name": "north horseburg little league",
+            "price": "3500",
+            "latitude": "40.755368",
+            "longitude": "-75.565643"
+        }
+    ],
+    "cost": 7500
+}
+
+```
 
 
 ## Connect your local database
