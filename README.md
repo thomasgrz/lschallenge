@@ -5,7 +5,7 @@ It has two endpoints:
 2. One to GET Leagues in need of sponsorship from
 
 ## Connect your local database
-SportSponsor requires a local PostgresQL database to store and query data from.
+SportSponsor requires a local PostgresQL database named `teams` to store and query data from.
 
 Navigate to the .env file in the root directory and change the DATABASE_URL like so:
 ```
@@ -21,7 +21,7 @@ Then run the following command in the root directory
 ```
   npm start
 ```
-Then go to localhost:3000/ to interact with the web application 
+Then navigate to `localhost:3000` in a web browser to interact with the web application 
 
 
 
