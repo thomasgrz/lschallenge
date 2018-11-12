@@ -43,6 +43,7 @@ async function findTeams(req,res,next){
 }
 
 async function createTeam(req,res){
+    console.log(req.body)
     let params = req.body
     let teamname = params.name
     let teamprice = params.price
