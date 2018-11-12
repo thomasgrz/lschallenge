@@ -9,7 +9,7 @@ SportSponsor requires a local PostgresQL database named `teams` to store and que
 
 Navigate to the .env file in the root directory and change the DATABASE_URL like so:
 ```
-DATABASE_URL=postgres://localhost:<YOUR_PSQL_PORT>/<YOUR_PSQL_DATABASE>
+DATABASE_URL=postgres://localhost:<YOUR_PSQL_PORT>/teams
 ```
 
 ## Test out the web service
@@ -31,7 +31,7 @@ You can populate your SportSponsor database one entry at a time using the web ap
 `seed.py` assumes you have a DATABASE_URL environment variable. Be sure to set it like so:
 
 ```
-export DATABASE_URL=DATABASE_URL=postgres://localhost:<YOUR_PSQL_PORT>/<YOUR_PSQL_DATABASE>
+export DATABASE_URL=DATABASE_URL=postgres://localhost:<YOUR_PSQL_PORT>/teams
 ```
 Once you've filled in `teams.csv` with enough teams' info, you can use it to populate the PostgresQL database.
 
