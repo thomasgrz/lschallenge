@@ -1,7 +1,7 @@
 # SportSponsor
 Simple coding challenge for technical review. 
 It has two endpoints:
-1. `/team`
+1. `/team` (POST)
 
 The `/team` route accepts POST requests and expects, within the body, a latitude=(*lat. in decimals*), longitude=(*long. in decimals*), name=(*string*) and price=(*USD as integer*). 
 This route will return an object representing the newly created database entry
@@ -14,7 +14,7 @@ This route will return an object representing the newly created database entry
   price: "500"
 }
 ```
-2. `/teams`
+2. `/teams` (GET)
 
 The `/teams` route accepts GET requests and expects, within the query parameters of the URL a latitude=(*lat. in decimals*), longitude=(*long. in decimals*), radius=(*miles as integer*) and price=(*USD as integer*).
 
