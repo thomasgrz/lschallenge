@@ -25,10 +25,18 @@ Then go to localhost:3000/ to interact with the web application
 
 
 
-### Populate your database with teams to test the application
-You can populate your SportSponsor database one entry at a time using respective form in web application or you can populate it with values from the teams.csv file.
+## Populate your database with teams to test the application
+You can populate your SportSponsor database one entry at a time using the web application itself or you can populate it with values from the `teams.csv` file in the root directory using `seed.py`.
 
-Once you've filled in teams.csv with enough teams' info, run the following command in the root directory:
+`seed.py` assumes you have a DATABASE_URL environment variable. Be sure to set it like so:
+
+```
+export DATABASE_URL=DATABASE_URL=postgres://localhost:<YOUR_PSQL_PORT>/<YOUR_PSQL_DATABASE>
+```
+Once you've filled in `teams.csv` with enough teams' info, you can use it to populate the PostgresQL database.
+
+
+
 ```
 python seed.py
 ```
