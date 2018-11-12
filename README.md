@@ -2,9 +2,11 @@
 Simple coding challenge for technical review.
 
 ## Start the web service
+Run the following command in the root directory
 ```
   npm start
 ```
+Then go to localhost:3000/ to interact with the web application 
 
 ### Connect your local database
 SportSponsor does require a local PostgresQL database.
@@ -16,7 +18,7 @@ DATABASE_URL=postgres://localhost:<YOUR_PSQL_PORT>/<YOUR_PSQL_DATABASE>
 ### Populate your database with teams to test the application
 You can populate your SportSponsor database one entry at a time using respective form in web application or you can populate it with values from the teams.csv file.
 
-Once you've filled in the teams.csv file run the following command in the root directory:
+Once you've filled in teams.csv with enough teams' info, run the following command in the root directory:
 ```
 python seed.py
 ```
