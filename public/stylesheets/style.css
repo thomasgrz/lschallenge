@@ -17,7 +17,7 @@ body{
 }
 .container{
   background-color:white;
-  padding:10px 10px 20px 50px;
+  padding:10px 10px 20px 10px;
   border-radius:7px;
   max-width:600px;
   min-width:250px;

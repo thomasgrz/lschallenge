@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'LeagueSide Sponsor Locator' });
+  res.render('index', { title: 'SportSponsor Locator' });
 });
 
 module.exports = router;
