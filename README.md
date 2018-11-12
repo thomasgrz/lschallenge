@@ -1,5 +1,7 @@
 # SportSponsor
 Simple coding challenge for technical review. 
+The goal is to help sponsors find sports leagues in need. Sports leagues can be added to a central database and Sponsors can query that database by giving latitude and longitude cooridinates, a radius to search within, and a budget. The application will return as many teams as possible within the radius of the given location without going over budget.
+
 It has two endpoints:
 1. `/team` (POST)
 
